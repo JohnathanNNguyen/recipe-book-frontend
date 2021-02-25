@@ -1,6 +1,7 @@
 <div class="container">
-  <div class="row">
-    <form class="form-container" [formGroup]="login">
+  <!-- Login Form -->
+  <form *ngIf="loginPage" class="form-container" [formGroup]="login">
+    <div class="row">
       <mat-form-field class="col-md-12" color="primary" appearance="legacy">
         <mat-label>Email</mat-label>
         <input
@@ -19,6 +20,55 @@
           formControlName="password"
         />
       </mat-form-field>
-    </form>
-  </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p class="login-register" (click)="loginPage = !loginPage">Register!</p>
+      </div>
+      <div class="col-md-6 button-end">
+        <button mat-raised-button [disabled]="!login.valid" (click)="onLogin()">
+          Login
+        </button>
+      </div>
+    </div>
+  </form>
+  <!-- Register Form -->
+  <form *ngIf="!loginPage" class="form-container" [formGroup]="register">
+    <div class="row">
+      <mat-form-field class="col-md-12" color="primary" appearance="legacy">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          placeholder="you@email.com"
+          formControlName="email"
+        />
+      </mat-form-field>
+      <mat-form-field class="col-md-12" color="primary" appearance="legacy">
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          matInput
+          placeholder="xxxxxx"
+          formControlName="password"
+        />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p class="login-register" (click)="loginPage = !loginPage">
+          Already registered?
+        </p>
+      </div>
+      <div class="col-md-6">
+        <button
+          mat-raised-button
+          [disabled]="!register.valid"
+          (click)="onRegister()"
+        >
+          Sign Up!
+        </button>
+      </div>
+    </div>
+  </form>
 </div>

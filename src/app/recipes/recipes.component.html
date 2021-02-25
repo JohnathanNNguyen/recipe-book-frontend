@@ -1,0 +1,25 @@
+<router-outlet></router-outlet>
+<div class="container">
+  <button (click)="onRandom()">Get random Recipes</button>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <div class="row" *ngIf="!isLoading">
+    <div class="col-md-4" *ngFor="let items of recipesToDisplay">
+      <div class="recipe-container">
+        <img
+          *ngIf="!items.recipes == ''; else otherImg"
+          (click)="getRecipe(items.recipes[0].id)"
+          src="{{ items.thumbnail_url }}"
+          alt="Photo of {{ items.name }}"
+        />
+        <ng-template #otherImg>
+          <img
+            (click)="getRecipe(items.id)"
+            src="{{ items.thumbnail_url }}"
+            alt="Photo of {{ items.name }}"
+          />
+        </ng-template>
+        <h3>{{ items.name }}</h3>
+      </div>
+    </div>
+  </div>
+</div>

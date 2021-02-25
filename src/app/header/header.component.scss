@@ -1,0 +1,16 @@
+@import "../../const.scss";
+.container-fluid {
+  display: inline-flex;
+  justify-content: space-between;
+  background-color: $light2;
+}
+nav {
+  margin: 20px;
+  a {
+    padding-left: 15px;
+    color: black;
+    &:hover {
+      color: blueviolet;
+    }
+  }
+}

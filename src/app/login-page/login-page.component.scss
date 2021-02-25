@@ -4,6 +4,12 @@
   align-items: center;
   min-height: 100%;
 }
-.form-container {
-  // width: 50%;
+
+.login-register:hover {
+  color: blue;
+  cursor: pointer;
+}
+.button-end {
+  display: flex;
+  justify-content: flex-end;
 }

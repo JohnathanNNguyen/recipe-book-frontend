@@ -26,4 +26,7 @@ export class LoginPageComponent implements OnInit {
       Validators.minLength(4),
     ]),
   });
+
+  onLogin() {}
+  onRegister() {}
 }
