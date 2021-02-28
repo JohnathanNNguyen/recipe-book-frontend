@@ -1,1 +1,19 @@
-<p>home works!</p>
+<div class="loading-container" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<div class="container" *ngIf="!isLoading">
+  <mat-form-field>
+    <mat-label>Search For A Recipe!</mat-label>
+    <input
+      #searchInput
+      matInput
+      type="text"
+      placeholder="Vietnamese"
+      appearance="legacy"
+    />
+  </mat-form-field>
+  <button mat-raised-button (click)="onSearch(searchInput.value)">
+    Search!
+  </button>
+</div>

@@ -7,27 +7,15 @@ import { Injectable } from '@angular/core';
 })
 export class SpoonAPIService {
   recipeDetail;
+  searchedRecipes;
   constructor(private http: HttpClient) {}
-
-  // getRandomRecipes() {
-  //   return this.http.get('https://api.spoonacular.com/recipes/random', {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     params: {
-  //       number: '21',
-  //       apiKey: Secrets.APIKEY,
-  //     },
-  //   });
-  // }
 
   tastyApiList() {
     return this.http.get(
-      'https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&canonical_id=recipe',
+      'https://tasty.p.rapidapi.com/recipes/list?from=0&size=21',
       {
         headers: {
-          'X-Rapidapi-Key':
-            'e1a2323f22msh3831f1dfbef5c79p1bab52jsn93cf9b53a8eb',
+          'X-Rapidapi-Key': Secrets.TastyAPIKEY,
           'X-Rapidapi-Host': 'tasty.p.rapidapi.com',
           useQueryString: 'true',
         },
@@ -35,15 +23,29 @@ export class SpoonAPIService {
     );
   }
 
-  getRecipe(id: string) {
+  getRecipe(inputId: string) {
+    return this.http.get('https://tasty.p.rapidapi.com/recipes/detail', {
+      headers: {
+        'X-Rapidapi-Key': Secrets.TastyAPIKEY,
+        'X-Rapidapi-Host': 'tasty.p.rapidapi.com',
+        useQueryString: 'true',
+      },
+      params: {
+        id: inputId,
+      },
+    });
+  }
+  searchRecipes(input: string) {
     return this.http.get(
-      'https://tasty.p.rapidapi.com/recipes/detail?id=' + id,
+      'https://tasty.p.rapidapi.com/recipes/list?from=0&size=21&',
       {
         headers: {
-          'X-Rapidapi-Key':
-            'e1a2323f22msh3831f1dfbef5c79p1bab52jsn93cf9b53a8eb',
+          'X-Rapidapi-Key': Secrets.TastyAPIKEY,
           'X-Rapidapi-Host': 'tasty.p.rapidapi.com',
           useQueryString: 'true',
+        },
+        params: {
+          q: input,
         },
       }
     );
