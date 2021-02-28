@@ -1,8 +1,9 @@
+@import "../../const.scss";
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100%;
+  min-height: calc(100vh - 148px);
 }
 
 .login-register:hover {
@@ -13,3 +14,22 @@
   display: flex;
   justify-content: flex-end;
 }
+form {
+  border-radius: 3px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+  padding: 25px;
+}
+// ::ng-deep .mat-focused .mat-form-field-label {
+//   /*change color of label*/
+//   color: $red !important;
+// }
+
+// ::ng-deep.mat-form-field-underline {
+//   /*change color of underline*/
+//   background-color: $red !important;
+// }
+
+// ::ng-deep.mat-form-field-ripple {
+//   /*change color of underline when focused*/
+//   background-color: $red !important;
+// }

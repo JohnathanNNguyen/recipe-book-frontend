@@ -20,6 +20,14 @@ export class LoginPageComponent implements OnInit {
     ]),
   });
   register = new FormGroup({
+    fName: new FormControl(null, [
+      Validators.required,
+      Validators.maxLength(45),
+    ]),
+    lName: new FormControl(null, [
+      Validators.required,
+      Validators.maxLength(45),
+    ]),
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [
       Validators.required,

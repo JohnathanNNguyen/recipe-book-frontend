@@ -2,15 +2,17 @@
 .container-fluid {
   display: inline-flex;
   justify-content: space-between;
-  background-color: $light2;
+  background-color: rgb(36, 36, 36);
+  color: #fff;
+  padding: 20px;
 }
 nav {
   margin: 20px;
   a {
     padding-left: 15px;
-    color: black;
+    color: white;
     &:hover {
-      color: blueviolet;
+      color: rgb(148, 3, 3);
     }
   }
 }

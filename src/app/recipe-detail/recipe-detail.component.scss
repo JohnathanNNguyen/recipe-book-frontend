@@ -1,8 +1,12 @@
 .container {
   margin-top: 100px;
+  min-height: calc(100vh - 148px);
 }
 
 img {
   width: 100%;
   max-width: 600px;
+}
+video {
+  width: 100%;
 }
