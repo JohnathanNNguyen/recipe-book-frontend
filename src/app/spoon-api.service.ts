@@ -16,7 +16,7 @@ export class SpoonAPIService {
       {
         headers: {
           'X-Rapidapi-Key': Secrets.TastyAPIKEY,
-          'X-Rapidapi-Host': 'tasty.p.rapidapi.com',
+          'X-Rapidapi-Host': Secrets.TastyHost,
           useQueryString: 'true',
         },
       }
@@ -27,7 +27,7 @@ export class SpoonAPIService {
     return this.http.get('https://tasty.p.rapidapi.com/recipes/detail', {
       headers: {
         'X-Rapidapi-Key': Secrets.TastyAPIKEY,
-        'X-Rapidapi-Host': 'tasty.p.rapidapi.com',
+        'X-Rapidapi-Host': Secrets.TastyHost,
         useQueryString: 'true',
       },
       params: {
@@ -41,7 +41,7 @@ export class SpoonAPIService {
       {
         headers: {
           'X-Rapidapi-Key': Secrets.TastyAPIKEY,
-          'X-Rapidapi-Host': 'tasty.p.rapidapi.com',
+          'X-Rapidapi-Host': Secrets.TastyHost,
           useQueryString: 'true',
         },
         params: {
