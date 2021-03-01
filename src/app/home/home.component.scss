@@ -1,9 +1,9 @@
 @import "../../const.scss";
 .loading-container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  min-height: calc(100vh - 148px);
+  justify-content: center;
   flex-direction: column;
 }
 // mat-progress-bar {
