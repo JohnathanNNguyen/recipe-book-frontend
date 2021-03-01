@@ -14,4 +14,6 @@ export class RecipeDetailComponent implements OnInit {
     this.recipeDetails = this.spoonApi.recipeDetail;
     console.log('test', this.recipeDetails);
   }
+
+  onSave() {}
 }

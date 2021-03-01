@@ -24,4 +24,9 @@ export class HomeComponent implements OnInit {
       console.log(this.spoonApi.searchedRecipes);
     });
   }
+  onFetch() {
+    this.spoonApi.getRecipesFromBackend().subscribe((data) => {
+      console.log(data);
+    });
+  }
 }
