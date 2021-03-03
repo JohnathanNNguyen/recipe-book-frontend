@@ -35,6 +35,7 @@ export class SpoonAPIService {
       },
     });
   }
+
   searchRecipes(input: string) {
     return this.http.get(
       'https://tasty.p.rapidapi.com/recipes/list?from=0&size=21&',

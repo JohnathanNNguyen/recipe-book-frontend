@@ -23,14 +23,11 @@
           <h5>{{ items.name }}</h5>
         </div>
       </div>
+      <!-- (click)="getRecipe(items.recipes[0].id)" -->
       <ng-template #otherImg>
-        <div
-          class="whole-recipe-container"
-          (click)="getRecipe(items.recipes[0].id)"
-        >
+        <div class="whole-recipe-container" (click)="getRecipe(items.id)">
           <div class="recipe-container">
             <img
-              (click)="getRecipe(items.id)"
               src="{{ items.thumbnail_url }}"
               alt="Photo of {{ items.name }}"
             />

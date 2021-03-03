@@ -5,7 +5,9 @@
   align-items: center;
   min-height: calc(100vh - 148px);
 }
-
+.form-container {
+  min-width: 35vw;
+}
 .login-register:hover {
   color: blue;
   cursor: pointer;
@@ -13,12 +15,23 @@
 .button-end {
   display: flex;
   justify-content: flex-end;
+  padding: 0;
 }
 form {
-  border-radius: 3px;
+  background-color: #fff;
+  border-radius: 8px;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
   padding: 25px;
 }
+.no-wrap {
+  white-space: nowrap;
+}
+.error-msg {
+  color: $red;
+}
+// mat-label {
+//   color: black;
+// }
 // ::ng-deep .mat-focused .mat-form-field-label {
 //   /*change color of label*/
 //   color: $red !important;
