@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SpoonAPIService } from 'src/app/spoon-api.service';
+import { TastyAPIService } from 'src/app/tasty-api.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -8,10 +8,10 @@ import { SpoonAPIService } from 'src/app/spoon-api.service';
 })
 export class RecipeDetailComponent implements OnInit {
   recipeDetails;
-  constructor(private spoonApi: SpoonAPIService) {}
+  constructor(private tastyApi: TastyAPIService) {}
 
   ngOnInit(): void {
-    this.recipeDetails = this.spoonApi.recipeDetail;
+    this.recipeDetails = this.tastyApi.recipeDetail;
     console.log('test', this.recipeDetails);
   }
 

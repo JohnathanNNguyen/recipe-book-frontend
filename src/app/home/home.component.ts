@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SpoonAPIService } from '../spoon-api.service';
+import { TastyAPIService } from '../tasty-api.service';
 
 @Component({
   selector: 'app-home',
@@ -10,22 +10,22 @@ import { SpoonAPIService } from '../spoon-api.service';
 export class HomeComponent implements OnInit {
   searchedRecipes;
   isLoading: boolean = false;
-  constructor(private spoonApi: SpoonAPIService, private router: Router) {}
+  constructor(private tastyApi: TastyAPIService, private router: Router) {}
 
   ngOnInit(): void {}
 
   onSearch(input: string) {
     this.isLoading = true;
-    this.spoonApi.searchRecipes(input).subscribe((data) => {
+    this.tastyApi.searchRecipes(input).subscribe((data) => {
       this.searchedRecipes = data;
-      this.spoonApi.searchedRecipes = this.searchedRecipes.results;
+      this.tastyApi.searchedRecipes = this.searchedRecipes.results;
       this.isLoading = false;
       this.router.navigate(['search/', input]);
-      console.log(this.spoonApi.searchedRecipes);
+      console.log(this.tastyApi.searchedRecipes);
     });
   }
   onFetch() {
-    this.spoonApi.getRecipesFromBackend().subscribe((data) => {
+    this.tastyApi.getRecipesFromBackend().subscribe((data) => {
       console.log(data);
     });
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SpoonAPIService } from 'src/app/spoon-api.service';
+import { TastyAPIService } from 'src/app/tasty-api.service';
 
 @Component({
   selector: 'app-recipes',
@@ -12,7 +12,7 @@ export class RecipesComponent implements OnInit {
   randomRecipes;
   recipesToDisplay;
   recipeDetail;
-  constructor(private spoonApi: SpoonAPIService, private router: Router) {}
+  constructor(private tastyApi: TastyAPIService, private router: Router) {}
 
   ngOnInit(): void {
     this.onRandom();
@@ -20,7 +20,7 @@ export class RecipesComponent implements OnInit {
 
   onRandom() {
     this.isLoading = true;
-    this.spoonApi.tastyApiList().subscribe((data) => {
+    this.tastyApi.tastyApiList().subscribe((data) => {
       this.randomRecipes = data;
       this.recipesToDisplay = this.randomRecipes.results;
       console.log(this.recipesToDisplay);
@@ -29,8 +29,8 @@ export class RecipesComponent implements OnInit {
   }
   getRecipe(id: string) {
     this.isLoading = true;
-    this.spoonApi.getRecipe(id).subscribe((data) => {
-      this.spoonApi.recipeDetail = data;
+    this.tastyApi.getRecipe(id).subscribe((data) => {
+      this.tastyApi.recipeDetail = data;
       this.isLoading = false;
       console.log(data);
       this.router.navigate(['recipes/', id]);
