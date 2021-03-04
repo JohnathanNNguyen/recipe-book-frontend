@@ -11,7 +11,7 @@ export class JwtService {
     localStorage.setItem(this.jwt_key, item);
   }
 
-  getJwt(itemKey: string) {
+  getJwt() {
     return localStorage.getItem(this.jwt_key);
   }
   removeJwt() {

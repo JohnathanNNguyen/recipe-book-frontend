@@ -6,6 +6,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { SearchRecipesComponent } from './search-recipes/search-recipes.component';
+import { UsersRecipesComponent } from './users-recipes/users-recipes.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'browse', component: BrowseComponent },
   { path: 'recipes', component: RecipesComponent },
   { path: 'recipes/:id', component: RecipeDetailComponent },
+  { path: 'user/recipe', component: UsersRecipesComponent },
 ];
 
 @NgModule({

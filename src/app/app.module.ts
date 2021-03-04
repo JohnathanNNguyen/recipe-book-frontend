@@ -21,6 +21,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { SearchRecipesComponent } from './search-recipes/search-recipes.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RecipesComponent } from './recipes/recipes.component';
+import { UsersRecipesComponent } from './users-recipes/users-recipes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { RecipesComponent } from './recipes/recipes.component';
     BrowseComponent,
     RecipeDetailComponent,
     SearchRecipesComponent,
+    UsersRecipesComponent,
   ],
   imports: [
     BrowserModule,

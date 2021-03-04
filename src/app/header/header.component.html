@@ -1,10 +1,15 @@
 <div class="container-fluid">
   <h1>Recipe Book</h1>
   <!-- <img src="../../assets/undraw_donut_love_kau1.svg" alt="" /> -->
-  <nav>
+  <nav *ngIf="jwtService.getJwt()">
     <a routerLink="">Home</a>
-    <a routerLink="recipes">Recipes</a>
+    <a routerLink="browse">Browse</a>
+    <a routerLink="user/recipe">Recipes</a>
+    <a routerLink="" (click)="onLogout()">Logout</a>
+  </nav>
+  <nav *ngIf="!jwtService.getJwt()">
+    <a routerLink="">Home</a>
+    <a routerLink="browse">Browse</a>
     <a routerLink="login">Login</a>
-    <!-- <a>Home</a> -->
   </nav>
 </div>

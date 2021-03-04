@@ -1,1 +1,43 @@
-<p>browse works!</p>
+<router-outlet></router-outlet>
+<div class="loading-container" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="container" *ngIf="!isLoading">
+  <div class="row">
+    <div
+      data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+      class="col-xl-4 col-lg-6 col-md-12 remove-padding"
+      *ngFor="let items of recipesToDisplay"
+    >
+      <div
+        class="whole-recipe-container"
+        *ngIf="!items.recipes == ''; else otherImg"
+        (click)="getRecipe(items.recipes[0].id)"
+      >
+        <div class="recipe-container">
+          <img
+            src="{{ items.thumbnail_url }}"
+            alt="Photo of {{ items.name }}"
+          />
+          <h5>{{ items.name }}</h5>
+        </div>
+      </div>
+      <ng-template #otherImg>
+        <div
+          class="whole-recipe-container"
+          (click)="getRecipe(items.recipes[0].id)"
+        >
+          <div class="recipe-container">
+            <img
+              (click)="getRecipe(items.id)"
+              src="{{ items.thumbnail_url }}"
+              alt="Photo of {{ items.name }}"
+            />
+            <h5>{{ items.name }}</h5>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Recipe } from '../interfaces/recipe.interface';
+import { RestService } from '../rest.service';
 import { TastyAPIService } from '../tasty-api.service';
 
 @Component({
@@ -8,6 +10,7 @@ import { TastyAPIService } from '../tasty-api.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  public usersRecipes: Recipe[] = [];
   searchedRecipes;
   isLoading: boolean = false;
   constructor(private tastyApi: TastyAPIService, private router: Router) {}
@@ -22,11 +25,6 @@ export class HomeComponent implements OnInit {
       this.isLoading = false;
       this.router.navigate(['search/', input]);
       console.log(this.tastyApi.searchedRecipes);
-    });
-  }
-  onFetch() {
-    this.tastyApi.getRecipesFromBackend().subscribe((data) => {
-      console.log(data);
     });
   }
 }
