@@ -3,6 +3,9 @@
   <mat-spinner></mat-spinner>
 </div>
 <div class="container" *ngIf="!isLoading">
+  <div *ngIf="usersRecipes.length === 0">
+    <h1>Save some Recipes!</h1>
+  </div>
   <div class="row">
     <div
       data-aos="fade-up"

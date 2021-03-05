@@ -8,13 +8,12 @@ import { TastyAPIService } from '../tasty-api.service';
   styleUrls: ['./search-recipes.component.scss'],
 })
 export class SearchRecipesComponent implements OnInit {
-  isLoading;
-  searchedRecipes;
+  public isLoading: boolean;
+  public searchedRecipes: [];
   constructor(private tastyApi: TastyAPIService, private router: Router) {}
 
   ngOnInit(): void {
     this.searchedRecipes = this.tastyApi.searchedRecipes;
-    console.log(this.searchedRecipes);
   }
 
   getRecipe(id: string) {
@@ -22,7 +21,6 @@ export class SearchRecipesComponent implements OnInit {
     this.tastyApi.getRecipe(id).subscribe((data) => {
       this.tastyApi.recipeDetail = data;
       this.isLoading = false;
-      console.log('test', data);
       this.router.navigate(['recipes/', id]);
     });
   }

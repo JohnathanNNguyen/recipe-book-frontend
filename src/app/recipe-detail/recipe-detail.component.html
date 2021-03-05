@@ -1,9 +1,15 @@
 <div class="container">
-  <div class="row">
+  <div
+    class="row"
+    data-aos="fade-zoom-in"
+    data-aos-easing="ease-in-sine"
+    data-aos-offset="0"
+    data-aos-duration="1500"
+  >
     <div class="col-md-10">
       <h2>{{ recipeDetails.name }}</h2>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2" *ngIf="loggedIn">
       <button class="mat-raised-button" *ngIf="!itemSaved" (click)="onSave()">
         Save Recipe
       </button>
@@ -19,7 +25,13 @@
       <hr />
     </div>
   </div>
-  <div class="row">
+  <div
+    class="row"
+    data-aos="fade-zoom-in"
+    data-aos-easing="ease-in-sine"
+    data-aos-offset="0"
+    data-aos-duration="2000"
+  >
     <div class="col-md-8 col-lg-8">
       <video controls *ngIf="recipeDetails.original_video_url !== null">
         <source src="{{ recipeDetails.original_video_url }}" type="video/mp4" />
@@ -36,7 +48,8 @@
         {{ items.raw_text }}
       </p>
     </div>
-    <!-- <div class="row"> -->
+  </div>
+  <div class="row">
     <div class="col-md-12 spacing">
       <hr />
     </div>
@@ -57,4 +70,3 @@
     </div>
   </div>
 </div>
-<!-- </div> -->

@@ -11,19 +11,21 @@ img {
 video {
   width: 100%;
 }
-// .ingredient-container {
-//   background-color: #fff;
-//   border-radius: 5px;
-//   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
-//   height: 100%;
-//   margin-left: 20px;
-// }
+.ingredient-container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  min-height: fit-content;
+  margin-right: 20px;
+  margin-left: 20px;
+}
 .directions-container {
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
-  margin-top: 75px;
-  margin-bottom: 75px;
+  margin: 75px 20px;
+  width: 100%;
   padding: 25px;
 }
 button {

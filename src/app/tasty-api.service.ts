@@ -1,6 +1,7 @@
 import { Secrets } from '.secrets/secrets';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,17 +11,18 @@ export class TastyAPIService {
   searchedRecipes;
   constructor(private http: HttpClient) {}
 
-  tastyApiList() {
-    return this.http.get(
-      'https://tasty.p.rapidapi.com/recipes/list?from=0&size=21',
-      {
-        headers: {
-          'X-Rapidapi-Key': Secrets.TastyAPIKEY,
-          'X-Rapidapi-Host': Secrets.TastyHost,
-          useQueryString: 'true',
-        },
-      }
-    );
+  tastyApiList(fromNum: string, quantity: string) {
+    return this.http.get('https://tasty.p.rapidapi.com/recipes/list', {
+      headers: {
+        'X-Rapidapi-Key': Secrets.TastyAPIKEY,
+        'X-Rapidapi-Host': Secrets.TastyHost,
+        useQueryString: 'true',
+      },
+      params: {
+        from: fromNum,
+        size: quantity,
+      },
+    });
   }
 
   getRecipe(inputId: string) {

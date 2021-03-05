@@ -7,6 +7,7 @@ import { JwtService } from './jwt.service';
   providedIn: 'root',
 })
 export class RestService {
+  public usersRecipes;
   constructor(
     private readonly http: HttpClient,
     private readonly jwtService: JwtService
@@ -20,14 +21,23 @@ export class RestService {
   //   return this.http.post(`${environment.apiUrl}/log-in`, body).toPromise();
   // }
   logIn(body): Promise<any> {
-    return this.http.post(`${environment.apiUrl}/log-in`, body).toPromise();
+    return this.http
+      .post(`${environment.apiUrl}/log-in`, body, {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      })
+      .toPromise();
   }
 
   getRecipes(): Promise<any> {
     const jwt = this.jwtService.getJwt();
     return this.http
       .get(`${environment.apiUrl}/recipes`, {
-        headers: { Authorization: `Bearer ${jwt}` },
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+          'Access-Control-Allow-Origin': '*',
+        },
       })
       .toPromise();
   }

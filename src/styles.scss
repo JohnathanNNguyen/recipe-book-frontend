@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./const.scss";
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 html,
 body {
   height: 100%;
@@ -7,8 +8,16 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Lato, "Helvetica Neue", sans-serif;
 }
 .red-accent {
   color: rgb(148, 3, 3);
+}
+::-moz-selection {
+  color: #fff;
+  background-color: $red;
+}
+::selection {
+  color: #fff;
+  background-color: $red;
 }

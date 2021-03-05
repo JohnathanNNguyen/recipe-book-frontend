@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtService } from '../jwt.service';
+import { RestService } from '../rest.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,10 @@ import { JwtService } from '../jwt.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(public readonly jwtService: JwtService) {}
+  constructor(
+    public readonly jwtService: JwtService,
+    public readonly rest: RestService
+  ) {}
 
   ngOnInit(): void {}
 

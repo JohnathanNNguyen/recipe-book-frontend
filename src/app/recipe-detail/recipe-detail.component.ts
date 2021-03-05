@@ -9,8 +9,10 @@ import { RestService } from '../rest.service';
   styleUrls: ['./recipe-detail.component.scss'],
 })
 export class RecipeDetailComponent implements OnInit {
-  recipeDetails;
-  itemSaved: boolean = false;
+  public loggedIn: boolean = false;
+  public recipeDetails;
+  public usersRecipes;
+  public itemSaved: boolean;
   constructor(
     private tastyApi: TastyAPIService,
     private readonly rest: RestService,
@@ -19,7 +21,20 @@ export class RecipeDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipeDetails = this.tastyApi.recipeDetail;
-    console.log('test', this.recipeDetails);
+    if (this.jwtService.getJwt()) {
+      this.loggedIn = true;
+      this.usersRecipes = this.rest.usersRecipes;
+      console.log('recipe-detail', this.usersRecipes);
+      for (let i = 0; i < this.usersRecipes.length; i++) {
+        console.log(this.usersRecipes[i].recipeId);
+        console.log('recipeDetails here', this.recipeDetails.id);
+        if (this.usersRecipes[i].recipeId == this.recipeDetails.id) {
+          this.itemSaved = true;
+        } else {
+          this.itemSaved = false;
+        }
+      }
+    }
   }
 
   onSave() {

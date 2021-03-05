@@ -8,22 +8,21 @@ import { TastyAPIService } from 'src/app/tasty-api.service';
   styleUrls: ['./recipes.component.scss'],
 })
 export class RecipesComponent implements OnInit {
-  isLoading: boolean = false;
-  randomRecipes;
-  recipesToDisplay;
-  recipeDetail;
+  public isLoading: boolean = false;
+  public randomRecipes;
+  public recipesToDisplay: [];
+  public recipeDetail;
   constructor(private tastyApi: TastyAPIService, private router: Router) {}
 
   ngOnInit(): void {
-    this.onRandom();
+    this.onRandom('0', '21');
   }
 
-  onRandom() {
+  onRandom(from: string, quantity: string) {
     this.isLoading = true;
-    this.tastyApi.tastyApiList().subscribe((data) => {
+    this.tastyApi.tastyApiList(from, quantity).subscribe((data) => {
       this.randomRecipes = data;
       this.recipesToDisplay = this.randomRecipes.results;
-      console.log(this.recipesToDisplay);
       this.isLoading = false;
     });
   }
@@ -32,7 +31,6 @@ export class RecipesComponent implements OnInit {
     this.tastyApi.getRecipe(id).subscribe((data) => {
       this.tastyApi.recipeDetail = data;
       this.isLoading = false;
-      console.log(data);
       this.router.navigate(['recipes/', id]);
     });
   }

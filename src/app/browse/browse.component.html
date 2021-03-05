@@ -39,5 +39,15 @@
         </div>
       </ng-template>
     </div>
+    <div class="col-md-12" (click)="onShowMore()" *ngIf="pageOne">
+      <p>Show more...</p>
+    </div>
+    <div class="col-md-12 page-two" *ngIf="pageTwo">
+      <p (click)="backToPageOne()" class="back-page">...Go back</p>
+      <p (click)="onShowMore2()" class="next-page">Show more...</p>
+    </div>
+    <div class="col-md-12" *ngIf="pageThree">
+      <p (click)="onShowMore()">Go back...</p>
+    </div>
   </div>
 </div>

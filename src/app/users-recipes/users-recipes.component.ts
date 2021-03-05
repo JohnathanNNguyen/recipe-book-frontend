@@ -9,8 +9,9 @@ import { TastyAPIService } from '../tasty-api.service';
   styleUrls: ['./users-recipes.component.scss'],
 })
 export class UsersRecipesComponent implements OnInit {
-  usersRecipes;
-  isLoading: boolean = false;
+  public usersRecipes: [] = [];
+  public isLoading: boolean = false;
+  public savedRecipes: boolean;
   constructor(
     private readonly restService: RestService,
     private readonly tastyApi: TastyAPIService,
@@ -20,7 +21,7 @@ export class UsersRecipesComponent implements OnInit {
   ngOnInit(): void {
     this.restService.getRecipes().then((res) => {
       this.usersRecipes = res.data;
-      console.log(res);
+      // this.restService.usersRecipes = this.usersRecipes;
     });
   }
 
@@ -29,7 +30,6 @@ export class UsersRecipesComponent implements OnInit {
     this.tastyApi.getRecipe(id).subscribe((data) => {
       this.tastyApi.recipeDetail = data;
       this.isLoading = false;
-      console.log('test', data);
       this.router.navigate(['recipes/', id]);
     });
   }
