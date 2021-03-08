@@ -5,6 +5,7 @@
   background-color: rgb(36, 36, 36);
   color: #fff;
   padding: 20px;
+  border-bottom: 5px solid $red;
 }
 nav {
   margin: 20px;
@@ -12,6 +13,7 @@ nav {
     padding-left: 15px;
     color: white;
     &:hover {
+      cursor: pointer;
       color: rgb(148, 3, 3);
     }
   }

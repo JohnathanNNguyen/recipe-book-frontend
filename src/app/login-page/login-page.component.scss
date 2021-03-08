@@ -1,27 +1,19 @@
 @import "../../const.scss";
-.container {
+.dialog-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 148px);
 }
 .form-container {
   min-width: 35vw;
 }
-.login-register:hover {
-  color: blue;
-  cursor: pointer;
+.browse {
+  text-align: end;
 }
 .button-end {
   display: flex;
   justify-content: flex-end;
   padding: 0;
-}
-form {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
-  padding: 25px;
 }
 .no-wrap {
   white-space: nowrap;
@@ -29,20 +21,19 @@ form {
 .error-msg {
   color: $red;
 }
-// mat-label {
-//   color: black;
-// }
-// ::ng-deep .mat-focused .mat-form-field-label {
-//   /*change color of label*/
-//   color: $red !important;
-// }
-
-// ::ng-deep.mat-form-field-underline {
-//   /*change color of underline*/
-//   background-color: $red !important;
-// }
-
-// ::ng-deep.mat-form-field-ripple {
-//   /*change color of underline when focused*/
-//   background-color: $red !important;
-// }
+p:hover {
+  color: $red;
+  cursor: pointer;
+}
+button {
+  background-color: $red;
+  color: #fff;
+  &:hover {
+    color: #fff;
+    background-color: #940303c9;
+  }
+}
+.mat-raised-button.mat-button-disabled:not([class*="mat-elevation-z"]) {
+  color: #fff;
+  background-color: #94030375;
+}

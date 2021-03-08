@@ -6,21 +6,33 @@
     data-aos-offset="0"
     data-aos-duration="1500"
   >
-    <div class="col-md-10">
+    <div class="col-md-9">
       <h2>{{ recipeDetails.name }}</h2>
     </div>
     <div class="col-md-2" *ngIf="loggedIn">
-      <button class="mat-raised-button" *ngIf="!itemSaved" (click)="onSave()">
+      <button
+        class="mat-raised-button"
+        *ngIf="!itemSaved"
+        (click)="onSave('Recipe Saved', 'Nom Nom Nom')"
+      >
         Save Recipe
       </button>
       <button
         class="mat-raised-button"
         *ngIf="itemSaved"
-        (click)="onDelete(recipeDetails.id)"
+        (click)="
+          onDelete(recipeDetails.id, 'Recipe removed...', 'Try another one!')
+        "
       >
         Delete Recipe
       </button>
     </div>
+    <div class="col-md-3" *ngIf="!loggedIn">
+      <button class="mat-raised-button" (click)="onLogin()">
+        Login to save recipes!
+      </button>
+    </div>
+
     <div class="col-md-12 margin-bottom">
       <hr />
     </div>

@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { JwtService } from '../jwt.service';
 import { RestService } from '../rest.service';
@@ -24,7 +20,8 @@ export class LoginPageComponent implements OnInit {
     private readonly fb: FormBuilder,
     private readonly restService: RestService,
     private readonly jwtService: JwtService,
-    private readonly router: Router
+    private readonly router: Router,
+    public dialog: MatDialog
   ) {
     this.loginForm = this.fb.group({
       email: [null, [Validators.required, Validators.email]],

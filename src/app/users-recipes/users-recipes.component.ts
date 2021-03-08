@@ -10,7 +10,7 @@ import { TastyAPIService } from '../tasty-api.service';
 })
 export class UsersRecipesComponent implements OnInit {
   public usersRecipes: [] = [];
-  public isLoading: boolean = false;
+  public isLoading: boolean = true;
   public savedRecipes: boolean;
   constructor(
     private readonly restService: RestService,
@@ -21,6 +21,7 @@ export class UsersRecipesComponent implements OnInit {
   ngOnInit(): void {
     this.restService.getRecipes().then((res) => {
       this.usersRecipes = res.data;
+      this.isLoading = false;
       // this.restService.usersRecipes = this.usersRecipes;
     });
   }

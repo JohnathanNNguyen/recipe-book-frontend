@@ -1,4 +1,4 @@
-<div class="container">
+<div class="dialog-container" mat-dialog-content>
   <!-- Login Form -->
   <form *ngIf="loginPage" class="form-container" [formGroup]="loginForm">
     <div class="row">
@@ -30,6 +30,7 @@
           mat-raised-button
           [disabled]="!loginForm.valid"
           (click)="onLogin()"
+          mat-dialog-close
         >
           Login
         </button>
@@ -37,6 +38,10 @@
     </div>
     <div class="col-md-12 error-msg">
       <p>{{ errorMsg }}</p>
+    </div>
+    <div class="col-md-12">
+      <hr />
+      <p class="browse" mat-dialog-close>Just want to browse?</p>
     </div>
   </form>
 
@@ -86,9 +91,14 @@
           mat-raised-button
           [disabled]="!registerForm.valid"
           (click)="onRegister()"
+          mat-dialog-close
         >
           Sign Up!
         </button>
+      </div>
+      <div class="col-md-12">
+        <hr />
+        <p class="browse" mat-dialog-close>Just want to browse?</p>
       </div>
     </div>
   </form>
