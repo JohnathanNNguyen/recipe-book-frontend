@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
       this.tastyApi.searchedRecipes = this.searchedRecipes.results;
       this.isLoading = false;
       this.router.navigate(['search/', input]);
-      console.log(this.tastyApi.searchedRecipes);
     });
   }
 }

@@ -7,9 +7,10 @@
     data-aos-duration="1500"
   >
     <div class="col-md-9">
-      <h2>{{ recipeDetails.name }}</h2>
+      <h1>{{ recipeDetails.name }}</h1>
     </div>
-    <div class="col-md-2" *ngIf="loggedIn">
+    <!-- <div class="col-md-2" *ngIf="loggedIn"> -->
+    <div class="col-md-2" *ngIf="jwtService.getJwt()">
       <button
         class="mat-raised-button"
         *ngIf="!itemSaved"
@@ -27,7 +28,7 @@
         Delete Recipe
       </button>
     </div>
-    <div class="col-md-3" *ngIf="!loggedIn">
+    <div class="col-md-3" *ngIf="!jwtService.getJwt()">
       <button class="mat-raised-button" (click)="onLogin()">
         Login to save recipes!
       </button>

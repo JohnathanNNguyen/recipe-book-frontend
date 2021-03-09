@@ -12,7 +12,6 @@ import { RestService } from '../rest.service';
   styleUrls: ['./recipe-detail.component.scss'],
 })
 export class RecipeDetailComponent implements OnInit {
-  public loggedIn: boolean = false;
   public recipeDetails;
   public usersRecipes;
   public itemSaved: boolean;
@@ -20,7 +19,7 @@ export class RecipeDetailComponent implements OnInit {
   constructor(
     private tastyApi: TastyAPIService,
     private readonly rest: RestService,
-    private readonly jwtService: JwtService,
+    public readonly jwtService: JwtService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog
   ) {}
@@ -28,10 +27,11 @@ export class RecipeDetailComponent implements OnInit {
   ngOnInit(): void {
     this.recipeDetails = this.tastyApi.recipeDetail;
     if (this.jwtService.getJwt()) {
-      this.loggedIn = true;
       this.usersRecipes = this.rest.usersRecipes;
       for (let i = 0; i < this.usersRecipes.length; i++) {
-        if (this.usersRecipes[i].recipeId == this.recipeDetails.id) {
+        if (
+          this.usersRecipes[i].recipeId === this.recipeDetails.id.toString()
+        ) {
           this.itemSaved = true;
           break;
         } else {

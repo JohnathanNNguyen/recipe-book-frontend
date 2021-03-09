@@ -22,7 +22,6 @@ export class UsersRecipesComponent implements OnInit {
     this.restService.getRecipes().then((res) => {
       this.usersRecipes = res.data;
       this.isLoading = false;
-      // this.restService.usersRecipes = this.usersRecipes;
     });
   }
 

@@ -1,10 +1,9 @@
+@import "../../const.scss";
 .container-fluid {
   background-color: rgb(36, 36, 36);
   color: #fff;
   padding: 10px;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
+  border-top: 5px solid $red;
 }
 p {
   text-align: center;

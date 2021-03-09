@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { JwtService } from '../jwt.service';
 import { RestService } from '../rest.service';
 
@@ -20,7 +19,6 @@ export class LoginPageComponent implements OnInit {
     private readonly fb: FormBuilder,
     private readonly restService: RestService,
     private readonly jwtService: JwtService,
-    private readonly router: Router,
     public dialog: MatDialog
   ) {
     this.loginForm = this.fb.group({
@@ -59,12 +57,9 @@ export class LoginPageComponent implements OnInit {
       })
       .then((res) => {
         if (res.error) {
-          console.log('logIn', res);
           this.errorMsg = res.msg;
         } else {
-          console.log('logIn', res);
           this.jwtService.setJwt(res.data);
-          this.router.navigate(['/']);
         }
       });
   }
@@ -73,11 +68,8 @@ export class LoginPageComponent implements OnInit {
     this.restService.register(this.registerForm.value).then((res) => {
       if (res.error) {
         this.errMessage = res.msg;
-        console.log('register error', res);
       } else {
-        console.log('register completed', res);
         this.jwtService.setJwt(res.data);
-        this.router.navigate(['/']);
       }
     });
   }
