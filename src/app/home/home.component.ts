@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Recipe } from '../interfaces/recipe.interface';
-import { JwtService } from '../jwt.service';
-import { RestService } from '../rest.service';
 import { TastyAPIService } from '../tasty-api.service';
 
 @Component({

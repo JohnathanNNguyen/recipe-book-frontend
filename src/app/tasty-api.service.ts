@@ -56,11 +56,4 @@ export class TastyAPIService {
   getRecipesFromBackend() {
     return this.http.get('http://localhost:3000/recipes');
   }
-
-  // saveRecipesToBackend(){
-  //   return this.http.post('http://localhost:4200/save',
-  //   body: )
-  //   .toPromise()
-
-  // }
 }

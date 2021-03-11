@@ -9,7 +9,6 @@
     <div class="col-md-9">
       <h1>{{ recipeDetails.name }}</h1>
     </div>
-    <!-- <div class="col-md-2" *ngIf="loggedIn"> -->
     <div class="col-md-2" *ngIf="jwtService.getJwt()">
       <button
         class="mat-raised-button"
