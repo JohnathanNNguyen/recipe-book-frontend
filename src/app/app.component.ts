@@ -22,9 +22,10 @@ export class AppComponent implements OnInit {
         this.usersRecipes = res.data;
         this.restService.usersRecipes = this.usersRecipes;
       });
-    } else {
-      this.dialog.open(LoginPageComponent);
     }
+    // else {
+    //   this.dialog.open(LoginPageComponent);
+    // }
     AOS.init();
   }
 }
