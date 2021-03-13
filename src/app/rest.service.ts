@@ -21,13 +21,7 @@ export class RestService {
   //   return this.http.post(`${environment.apiUrl}/log-in`, body).toPromise();
   // }
   logIn(body): Promise<any> {
-    return this.http
-      .post(`${environment.apiUrl}/log-in`, body, {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-        },
-      })
-      .toPromise();
+    return this.http.post(`${environment.apiUrl}/log-in`, body).toPromise();
   }
 
   getRecipes(): Promise<any> {

@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiUrl: 'http://localhost:3000',
+  // apiUrl: 'http://localhost:3000',
+  apiUrl: 'http://recipeserver-env.eba-kjpdmt6k.us-west-1.elasticbeanstalk.com',
   // apiUrl: 'http://noderecipe-env.eba-3rp3ditm.us-west-1.elasticbeanstalk.com',
   // apiUrl: 'https://polar-cove-00381.herokuapp.com',
   production: false,

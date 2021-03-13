@@ -47,3 +47,7 @@ Thumbs.db
 
 
 .secrets
+.firebase
+firebase.json
+firebase-debug.log
+.firebaserc
