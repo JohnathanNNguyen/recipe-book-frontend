@@ -14,14 +14,26 @@ export class RestService {
   ) {}
 
   register(body): Promise<any> {
-    return this.http.post(`${environment.apiUrl}/register`, body).toPromise();
+    return this.http
+      .post(`${environment.apiUrl}/register`, body, {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      })
+      .toPromise();
   }
 
   // logIn(body: { email: string; password: string }): Promise<any> {
   //   return this.http.post(`${environment.apiUrl}/log-in`, body).toPromise();
   // }
   logIn(body): Promise<any> {
-    return this.http.post(`${environment.apiUrl}/log-in`, body).toPromise();
+    return this.http
+      .post(`${environment.apiUrl}/log-in`, body, {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      })
+      .toPromise();
   }
 
   getRecipes(): Promise<any> {
@@ -42,6 +54,7 @@ export class RestService {
       .put(`${environment.apiUrl}/save`, body, {
         headers: {
           Authorization: `Bearer ${jwt}`,
+          'Access-Control-Allow-Origin': '*',
         },
       })
       .toPromise();
@@ -53,6 +66,7 @@ export class RestService {
       .delete(`${environment.apiUrl}/delete-recipe/${id}`, {
         headers: {
           Authorization: `Bearer ${jwt}`,
+          'Access-Control-Allow-Origin': '*',
         },
       })
       .toPromise();
