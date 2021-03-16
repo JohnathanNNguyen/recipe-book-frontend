@@ -23,9 +23,7 @@ export class AppComponent implements OnInit {
         this.restService.usersRecipes = this.usersRecipes;
       });
     }
-    // else {
-    //   this.dialog.open(LoginPageComponent);
-    // }
+
     AOS.init();
   }
 }
