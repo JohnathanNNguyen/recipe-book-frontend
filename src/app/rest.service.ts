@@ -23,9 +23,6 @@ export class RestService {
       .toPromise();
   }
 
-  // logIn(body: { email: string; password: string }): Promise<any> {
-  //   return this.http.post(`${environment.apiUrl}/log-in`, body).toPromise();
-  // }
   logIn(body): Promise<any> {
     return this.http
       .post(`${environment.apiUrl}/log-in`, body, {
