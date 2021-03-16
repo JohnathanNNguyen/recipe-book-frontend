@@ -27,17 +27,19 @@ export class RecipeDetailComponent implements OnInit {
   ngOnInit(): void {
     this.recipeDetails = this.tastyApi.recipeDetail;
     if (this.jwtService.getJwt()) {
-      this.usersRecipes = this.rest.usersRecipes;
-      for (let i = 0; i < this.usersRecipes.length; i++) {
-        if (
-          this.usersRecipes[i].recipeId === this.recipeDetails.id.toString()
-        ) {
-          this.itemSaved = true;
-          break;
-        } else {
-          this.itemSaved = false;
+      this.rest.getRecipes().then((res) => {
+        this.usersRecipes = res.data;
+        for (let i = 0; i < this.usersRecipes.length; i++) {
+          if (
+            this.usersRecipes[i].recipeId === this.recipeDetails.id.toString()
+          ) {
+            this.itemSaved = true;
+            break;
+          } else {
+            this.itemSaved = false;
+          }
         }
-      }
+      });
     }
   }
 

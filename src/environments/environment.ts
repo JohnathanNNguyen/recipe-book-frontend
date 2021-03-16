@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   // apiUrl: 'http://localhost:3000',
-  apiUrl: 'http://recipeserver-env.eba-kjpdmt6k.us-west-1.elasticbeanstalk.com',
+  apiUrl: 'https://recipe-backend-node.herokuapp.com',
+  // apiUrl: 'http://recipeserver-env.eba-kjpdmt6k.us-west-1.elasticbeanstalk.com',
   // apiUrl: 'http://noderecipe-env.eba-3rp3ditm.us-west-1.elasticbeanstalk.com',
   // apiUrl: 'https://polar-cove-00381.herokuapp.com',
 };
