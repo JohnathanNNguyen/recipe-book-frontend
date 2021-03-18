@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { RestService } from '../rest.service';
 import { TastyAPIService } from '../tasty-api.service';
 
@@ -25,12 +25,10 @@ export class UsersRecipesComponent implements OnInit {
     });
   }
 
-  getRecipe(id: string) {
-    this.isLoading = true;
-    this.tastyApi.getRecipe(id).subscribe((data) => {
-      this.tastyApi.recipeDetail = data;
-      this.isLoading = false;
-      this.router.navigate(['recipes/', id]);
-    });
+  getRecipe(recipeId: string) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: { id: recipeId },
+    };
+    this.router.navigate(['recipes'], navigationExtras);
   }
 }

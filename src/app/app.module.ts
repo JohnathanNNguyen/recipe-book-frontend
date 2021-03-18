@@ -14,7 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowseComponent } from './browse/browse.component';
 import { SearchRecipesComponent } from './search-recipes/search-recipes.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
-import { RecipesComponent } from './recipes/recipes.component';
+
 import { UsersRecipesComponent } from './users-recipes/users-recipes.component';
 
 // Angular Material
@@ -24,6 +24,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NotFoundComponent } from './not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,11 +32,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    RecipesComponent,
     BrowseComponent,
     RecipeDetailComponent,
     SearchRecipesComponent,
     UsersRecipesComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

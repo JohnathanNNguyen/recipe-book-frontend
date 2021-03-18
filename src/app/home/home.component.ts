@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Recipe } from '../interfaces/recipe.interface';
 import { TastyAPIService } from '../tasty-api.service';
 
@@ -16,13 +16,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSearch(input: string) {
-    this.isLoading = true;
-    this.tastyApi.searchRecipes(input).subscribe((data) => {
-      this.searchedRecipes = data;
-      this.tastyApi.searchedRecipes = this.searchedRecipes.results;
-      this.isLoading = false;
-      this.router.navigate(['search/', input]);
-    });
+  onSearch(searchId) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: { id: searchId },
+    };
+    this.router.navigate(['search'], navigationExtras);
   }
 }

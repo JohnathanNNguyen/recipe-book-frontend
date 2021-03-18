@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { TastyAPIService } from '../tasty-api.service';
 
 @Component({
@@ -30,14 +30,12 @@ export class BrowseComponent implements OnInit {
       this.isLoading = false;
     });
   }
-  getRecipe(id: string) {
-    this.isLoading = true;
-    this.tastyApi.getRecipe(id).subscribe((data) => {
-      this.tastyApi.recipeDetail = data;
-      this.isLoading = false;
-      console.log(data);
-      this.router.navigate(['recipes/', id]);
-    });
+
+  getRecipe(recipeId: string) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: { id: recipeId },
+    };
+    this.router.navigate(['recipes'], navigationExtras);
   }
   onShowMore() {
     this.onRandom('22', '21');

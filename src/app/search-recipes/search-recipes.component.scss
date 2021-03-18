@@ -1,11 +1,11 @@
 @import "../../const.scss";
 .loading-container {
-  min-height: calc(100vh - 158px);
-  display: flex;
-  justify-content: center;
   align-items: center;
-  background-image: url(../../assets/undraw_cooking_lyxy.svg);
-  background-size: 45vh;
+  display: flex;
+  min-height: calc(100vh - 158px);
+  justify-content: center;
+  flex-direction: column;
+  background-image: url(../../assets/undraw_good_team_m7uu.svg);
   background-repeat: no-repeat;
   background-position-y: bottom;
   background-position-x: center;

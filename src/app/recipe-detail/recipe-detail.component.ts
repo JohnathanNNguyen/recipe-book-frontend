@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, OnChanges, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 import { TastyAPIService } from 'src/app/tasty-api.service';
 import { JwtService } from '../jwt.service';
 import { LoginPageComponent } from '../login-page/login-page.component';
@@ -12,6 +13,8 @@ import { RestService } from '../rest.service';
   styleUrls: ['./recipe-detail.component.scss'],
 })
 export class RecipeDetailComponent implements OnInit {
+  public isLoading = true;
+  private recipeId;
   public recipeDetails;
   public usersRecipes;
   public itemSaved: boolean;
@@ -21,11 +24,16 @@ export class RecipeDetailComponent implements OnInit {
     private readonly rest: RestService,
     public readonly jwtService: JwtService,
     private snackBar: MatSnackBar,
-    private dialog: MatDialog
-  ) {}
+    private dialog: MatDialog,
+    private route: ActivatedRoute
+  ) {
+    this.recipeId = this.route.snapshot.queryParams.id;
+  }
 
-  ngOnInit(): void {
-    this.recipeDetails = this.tastyApi.recipeDetail;
+  async ngOnInit(): Promise<any> {
+    const data = await this.tastyApi.getRecipe(this.recipeId).toPromise();
+    this.recipeDetails = data;
+    this.isLoading = false;
     if (this.jwtService.getJwt()) {
       this.rest.getRecipes().then((res) => {
         this.usersRecipes = res.data;
@@ -41,7 +49,16 @@ export class RecipeDetailComponent implements OnInit {
         }
       });
     }
+
+    // this.recipeDetails = this.tastyApi.recipeDetail;
   }
+
+  // getRecipeDetails() {
+  //   this.tastyApi.getRecipe(this.recipeId).subscribe((data) => {
+  //     this.recipeDetails = data;
+  //     console.log(this.recipeDetails);
+  //   });
+  // }
 
   onSave(content, action) {
     this.rest.saveRecipe({

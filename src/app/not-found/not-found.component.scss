@@ -1,0 +1,18 @@
+@import "../../const.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 158px);
+  background-image: url(../../assets/undraw_not_found_60pq.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  background-position-x: center;
+}
+h1 {
+  color: $red;
+  font-size: 20vw;
+  margin-top: 10vh;
+}

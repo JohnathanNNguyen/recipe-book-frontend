@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { TastyAPIService } from '../tasty-api.service';
 
 @Component({
@@ -8,20 +8,29 @@ import { TastyAPIService } from '../tasty-api.service';
   styleUrls: ['./search-recipes.component.scss'],
 })
 export class SearchRecipesComponent implements OnInit {
-  public isLoading: boolean;
-  public searchedRecipes: [];
-  constructor(private tastyApi: TastyAPIService, private router: Router) {}
-
-  ngOnInit(): void {
-    this.searchedRecipes = this.tastyApi.searchedRecipes;
+  private searchId;
+  public isLoading: boolean = true;
+  public searchedRecipes;
+  constructor(
+    private tastyApi: TastyAPIService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    this.searchId = this.route.snapshot.queryParams.id;
   }
 
-  getRecipe(id: string) {
-    this.isLoading = true;
-    this.tastyApi.getRecipe(id).subscribe((data) => {
-      this.tastyApi.recipeDetail = data;
+  ngOnInit(): void {
+    // this.searchedRecipes = this.tastyApi.searchedRecipes;
+    this.tastyApi.searchRecipes(this.searchId).subscribe((data) => {
+      this.searchedRecipes = data;
       this.isLoading = false;
-      this.router.navigate(['recipes/', id]);
     });
+  }
+
+  getRecipe(recipeId: string) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: { id: recipeId },
+    };
+    this.router.navigate(['recipes'], navigationExtras);
   }
 }

@@ -1,4 +1,18 @@
 @import "../../const.scss";
+.loading-container {
+  min-height: calc(100vh - 158px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../../assets/undraw_cooking_lyxy.svg);
+  background-size: 45vh;
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  background-position-x: center;
+}
+.mat-spinner::ng-deep circle {
+  stroke: $red;
+}
 .container {
   margin-top: 100px;
   min-height: calc(100vh - 158px);
