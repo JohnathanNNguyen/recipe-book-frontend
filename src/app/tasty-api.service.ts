@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TastyAPIService {
-  recipeDetail;
-  searchedRecipes;
+  public recipeDetail;
+  public searchedRecipes;
   constructor(private http: HttpClient) {}
 
   tastyApiList(fromNum: string, quantity: string) {
