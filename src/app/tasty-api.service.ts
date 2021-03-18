@@ -52,8 +52,4 @@ export class TastyAPIService {
       }
     );
   }
-
-  getRecipesFromBackend() {
-    return this.http.get('http://localhost:3000/recipes');
-  }
 }
